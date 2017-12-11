@@ -10,6 +10,7 @@
 
     <build>
         <plugins>
+            <!-- 没有用到
             <plugin>
                 <groupId>com.rimerosolutions.maven.plugins</groupId>
                 <artifactId>wrapper-maven-plugin</artifactId>
@@ -19,6 +20,7 @@
                     <checksumAlgorithm>MD5</checksumAlgorithm>
                 </configuration>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -66,7 +68,35 @@
             <type>war</type>
             <scope>runtime</scope>
         </dependency>
+        <!--STEP2 引入数据库认证相关 start-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-jdbc-drivers</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
+        <!--数据库认证相关 end-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-core</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-webapp-config</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
     </dependencies>
+
 
     <properties>
         <cas.version>5.1.6</cas.version>
@@ -108,7 +138,7 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
-
+    <!--
     <profiles>
         <profile>
             <activation>
@@ -140,4 +170,5 @@
             </build>
         </profile>
     </profiles>
+    -->
 </project>
