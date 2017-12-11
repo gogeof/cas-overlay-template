@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=org.example.gogeof.credential.config.CustomerAuthWebflowConfiguration,org.example.gogeof.credential.config.CustomAuthenticationEventExecutionPlanConfiguration
