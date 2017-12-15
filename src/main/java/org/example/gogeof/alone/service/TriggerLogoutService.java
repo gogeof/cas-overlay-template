@@ -4,13 +4,10 @@ import org.apereo.cas.CentralAuthenticationService;
 import org.apereo.cas.authentication.Authentication;
 import org.apereo.cas.ticket.Ticket;
 import org.apereo.cas.ticket.TicketGrantingTicket;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
 
 import java.util.Collection;
 
 public class TriggerLogoutService {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TriggerLogoutService.class);
     private CentralAuthenticationService service;
 
     public TriggerLogoutService(CentralAuthenticationService service) {
@@ -39,7 +36,8 @@ public class TriggerLogoutService {
         });
 
         if (tickets != null && tickets.size() > 0) {
-            LOGGER.info(String.format("[%s]强制强制注销%s", id, tickets.size()));
+            //强制注销
+            System.out.println("强制注销");
         }
 
         //发出注销

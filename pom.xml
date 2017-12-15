@@ -2,6 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+    <parent>
+        <groupId>org.example.gogeof</groupId>
+        <artifactId>spring-dependencies</artifactId>
+        <version>1.6.0</version>
+        <relativePath>spring-dependencies</relativePath>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apereo.cas</groupId>
     <artifactId>cas-overlay</artifactId>
@@ -10,17 +17,6 @@
 
     <build>
         <plugins>
-            <!-- 没有用到
-            <plugin>
-                <groupId>com.rimerosolutions.maven.plugins</groupId>
-                <artifactId>wrapper-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <verifyDownload>true</verifyDownload>
-                    <checksumAlgorithm>MD5</checksumAlgorithm>
-                </configuration>
-            </plugin>
-            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -101,17 +97,11 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
-
         <!--sglca dependence on begin-->
         <dependency>
             <groupId>org.apache.ibatis</groupId>
             <artifactId>ibatis-core</artifactId>
             <version>3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.0</version>
         </dependency>
         <dependency>
             <groupId>sglca</groupId>
@@ -146,7 +136,7 @@
 
     <properties>
         <cas.version>5.1.6</cas.version>
-        <springboot.version>1.5.3.RELEASE</springboot.version>
+        <springboot.version>1.5.4.RELEASE</springboot.version>
         <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
         <app.server>-tomcat</app.server> 
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -188,37 +178,4 @@
             <url>file://${project.basedir}/sglca</url>
         </repository>
     </repositories>
-    <!--
-    <profiles>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <id>pgp</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.s4u.plugins</groupId>
-                        <artifactId>pgpverify-maven-plugin</artifactId>
-                        <version>1.1.0</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <pgpKeyServer>hkp://pool.sks-keyservers.net</pgpKeyServer>
-                            <pgpKeysCachePath>${settings.localRepository}/pgpkeys-cache</pgpKeysCachePath>
-                            <scope>test</scope>
-                            <verifyPomFiles>true</verifyPomFiles>
-                            <failNoSignature>false</failNoSignature>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-    -->
 </project>
