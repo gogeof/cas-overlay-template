@@ -10,9 +10,8 @@ public class UserIdObtainServiceImpl implements IUserIdObtainService {
 
     @Override
     public List<String> obtain(String clientName, String id) {
-        //由于这里目前只做测试所以只返回当前的id，在正常的情况逻辑应该如下
+        // TODO. 根据我们的需要，我决定所有用户都只有一个唯一的用户名或者ID，不管将来使用那种用户登录，可以增加用户认证方式的表示，但是用户ID都只能为一个
 
-        //根据校验client以及登录的id找到其他同一个用户的所有校验id返回，如通过邮箱登录的id，通过github登录的id等等
         List<String> ids = new ArrayList<>();
         ids.add(id);
         return ids;
