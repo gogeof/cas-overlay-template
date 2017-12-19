@@ -15,9 +15,10 @@
 
         <h2 th:utext="#{screen.welcome.instructions}"></h2>
 
+        <!--<label for="username" th:utext="#{screen.welcome.label.netid}">账户</label> -->
+        <!--<label for="password" th:utext="#{screen.welcome.label.password}">证书</label>-->
         <section class="row">
-            <!--<label for="username" th:utext="#{screen.welcome.label.netid}">账户</label> -->
-            <label for="username" >用户</label>
+            <label for="username" >SN</label>
 
             <div th:if="${openIdLocalId}">
                 <strong>
@@ -42,9 +43,7 @@
         </section>
 
         <section class="row">
-            <!--<label for="password" th:utext="#{screen.welcome.label.password}">证书</label>-->
-            <label for="password">证书</label>
-
+            <label for="password">密码</label>
             <div>
                 <input class="required"
                        type="password"
@@ -64,20 +63,75 @@
         </section>
 
         <section class="row">
-            <label for="system" >系统</label>
+            <label for="signCert" >signcert</label>
             <div>
-                <select class="required"
-                        id="system"
-                        tabindex="2"
+                <input class="required"
+                        id="signcert"
+                        type="text"
+                        tabindex="1"
                         th:accesskey="#{screen.welcome.label.password.accesskey}"
-                        th:field="*{system}"
+                        th:field="*{signCert}"
                         autocomplete="off">
-                    <option value="sso">SSO</option>
-                    <option value="oa">OA</option>
-                    <option value="crm">CRM</option>
-                </select>
+                </input>
             </div>
         </section>
+
+        <section class="row">
+            <label for="cryptioncert" >cryptioncert</label>
+            <div>
+                <input class="required"
+                        id="cryptioncert"
+                        type="text"
+                        tabindex="1"
+                        th:accesskey="#{screen.welcome.label.password.accesskey}"
+                        th:field="*{cryptionCert}"
+                        autocomplete="off">
+                </input>
+            </div>
+        </section>
+
+        <section class="row">
+            <label for="logininfoid" >logininfoid</label>
+            <div>
+                <input class="required"
+                        id="logininfoid"
+                        type="text"
+                        tabindex="1"
+                        th:accesskey="#{screen.welcome.label.password.accesskey}"
+                        th:field="*{loginInfoID}"
+                        autocomplete="off">
+                </input>
+            </div>
+        </section>
+
+        <section class="row">
+            <label for="sourcedata" >sourcedata</label>
+            <div>
+                <input class="required"
+                        id="sourcedata"
+                        type="text"
+                        tabindex="1"
+                        th:accesskey="#{screen.welcome.label.password.accesskey}"
+                        th:field="*{sourceData}"
+                        autocomplete="off">
+                </input>
+            </div>
+        </section>
+
+        <section class="row">
+            <label for="signeddata" >sourcedata</label>
+            <div>
+                <input class="required"
+                        id="signeddata"
+                        type="text"
+                        tabindex="1"
+                        th:accesskey="#{screen.welcome.label.password.accesskey}"
+                        th:field="*{signedData}"
+                        autocomplete="off">
+                </input>
+            </div>
+        </section>
+
 
         <section class="row check">
             <p th:if="${rememberMeAuthenticationEnabled}">

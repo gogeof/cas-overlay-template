@@ -5,7 +5,7 @@ import org.apereo.cas.authentication.AuthenticationEventExecutionPlanConfigurer;
 import org.apereo.cas.authentication.AuthenticationHandler;
 import org.apereo.cas.authentication.principal.PrincipalFactory;
 import org.apereo.cas.services.ServicesManager;
-import org.example.gogeof.credential.handler.UsernamePasswordSystemAuthenticationHandler;
+import org.example.gogeof.credential.handler.CertKeyAuthenticationHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class CustomAuthenticationEventExecutionPlanConfiguration implements Auth
     @Bean
     public AuthenticationHandler customAuthenticationHandler() {
         //优先验证
-        return new UsernamePasswordSystemAuthenticationHandler("customAuthenticationHandler",
+        return new CertKeyAuthenticationHandler("customAuthenticationHandler",
                 servicesManager, jdbcPrincipalFactory, 1);
     }
 

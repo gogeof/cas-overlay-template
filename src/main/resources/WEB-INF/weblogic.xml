@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE weblogic-web-app PUBLIC "-//BEA Systems, Inc.//DTD Web Application 8.1//EN" "http://www.bea.com/servers/wls810/dtd/weblogic810-web-jar.dtd">
+<weblogic-web-app>
+    <!-- 为web.xml所定义角色赋值，如果是Weblogic 8.1 SP2 或者之前的版本，可以不定义security-role-assignment， 如果是SP3，必须手工添加所有principal（角色或角色组）；详细介绍请参考 PAFA3开发设计指南 文档 。-->
+    <security-role-assignment>
+        <!--role-name必须跟web.xml中security-role标记下的role-name取值相同-->
+        <role-name>pafaDemoUser</role-name>
+        <!--principal-name必须是UM中定义的角色或者角色组，不能是用户-->
+        <principal-name>r_usermanager_rm_user</principal-name>
+        <principal-name>p_g_rmtest03_myopr</principal-name>
+        <principal-name>Administrators</principal-name>
+    </security-role-assignment>
+    <jsp-descriptor>
+        <jsp-param>
+            <param-name>compileFlags</param-name>
+            <param-value>-g</param-value>
+        </jsp-param>
+        <jsp-param>
+            <param-name>keepgenerated</param-name>
+            <param-value>true</param-value>
+        </jsp-param>
+    </jsp-descriptor>
+    <context-root>xccore</context-root>
+</weblogic-web-app>

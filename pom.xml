@@ -10,17 +10,6 @@
 
     <build>
         <plugins>
-            <!-- 没有用到
-            <plugin>
-                <groupId>com.rimerosolutions.maven.plugins</groupId>
-                <artifactId>wrapper-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <verifyDownload>true</verifyDownload>
-                    <checksumAlgorithm>MD5</checksumAlgorithm>
-                </configuration>
-            </plugin>
-            -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -302,41 +291,8 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
         <repository>
-            <id>sglca</id>
-            <url>file://${project.basedir}/sglca</url>
+            <id>local</id>
+            <url>file:///home/gogeof/.m2/repository</url>
         </repository>
     </repositories>
-    <!--
-    <profiles>
-        <profile>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <id>pgp</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.s4u.plugins</groupId>
-                        <artifactId>pgpverify-maven-plugin</artifactId>
-                        <version>1.1.0</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <pgpKeyServer>hkp://pool.sks-keyservers.net</pgpKeyServer>
-                            <pgpKeysCachePath>${settings.localRepository}/pgpkeys-cache</pgpKeysCachePath>
-                            <scope>test</scope>
-                            <verifyPomFiles>true</verifyPomFiles>
-                            <failNoSignature>false</failNoSignature>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-    -->
 </project>

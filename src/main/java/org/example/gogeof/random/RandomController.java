@@ -1,8 +1,11 @@
 package org.example.gogeof.random;
 
 import org.apereo.cas.web.AbstractDelegateController;
+import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.szwj.ca.identityauthsrv.controller.LoginController;
+import org.szwj.ca.identityauthsrv.entity.httpRequest.GetRandomEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +23,12 @@ public class RandomController extends AbstractDelegateController {
     @GetMapping(value = RandomConstants.REQUEST_MAPPING, produces = "text/plain")
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 获取随机数
+        GetRandomEntity gr = new GetRandomEntity();
+        gr.setSn("abcefghjjfkldsjfsld");
+        LoginController lc = new LoginController();
+        HttpEntity random = lc.getRandomNum(gr);
+
         //存储验证码到session
         HttpSession session = request.getSession();
         String randomNum;
@@ -37,7 +46,7 @@ public class RandomController extends AbstractDelegateController {
         response.setContentType("text/plain");
 
         OutputStream outputStream =  response.getOutputStream();
-        outputStream.write(randomNum.getBytes());
+        outputStream.write(random.getBody().toString().getBytes());
         return null;
     }
 
