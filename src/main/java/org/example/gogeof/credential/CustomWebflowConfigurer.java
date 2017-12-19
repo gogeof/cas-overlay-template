@@ -40,7 +40,6 @@ public class CustomWebflowConfigurer extends AbstractCasWebflowConfigurer {
         cfg.addBinding(new BinderConfiguration.Binding(cfg.getBinding("password").getProperty(), cfg.getBinding("password").getConverter(), false));
         cfg.addBinding(new BinderConfiguration.Binding("signCert", null, false));
         cfg.addBinding(new BinderConfiguration.Binding("cryptionCert", null, false));
-        cfg.addBinding(new BinderConfiguration.Binding("loginInfoID", null, false));
         cfg.addBinding(new BinderConfiguration.Binding("sourceData", null, false));
         cfg.addBinding(new BinderConfiguration.Binding("signedData", null, false));
     }
