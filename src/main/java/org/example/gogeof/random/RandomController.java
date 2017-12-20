@@ -3,6 +3,9 @@ package org.example.gogeof.random;
 import org.apereo.cas.web.AbstractDelegateController;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.szwj.ca.identityauthsrv.controller.LoginController;
 import org.szwj.ca.identityauthsrv.entity.httpRequest.GetRandomEntity;
@@ -15,6 +18,16 @@ import java.io.OutputStream;
 import java.util.Random;
 
 public class RandomController extends AbstractDelegateController {
+    private LoginController loginController;
+
+    public RandomController(){
+        try{
+            loginController = new LoginController();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
     @Override
     public boolean canHandle(HttpServletRequest request, HttpServletResponse response) {
         return true;
@@ -23,12 +36,6 @@ public class RandomController extends AbstractDelegateController {
     @GetMapping(value = RandomConstants.REQUEST_MAPPING, produces = "text/plain")
     @Override
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // 获取随机数
-        GetRandomEntity gr = new GetRandomEntity();
-        gr.setSn("abcefghjjfkldsjfsld");
-        LoginController lc = new LoginController();
-        HttpEntity random = lc.getRandomNum(gr);
-
         //存储验证码到session
         HttpSession session = request.getSession();
         String randomNum;
@@ -46,7 +53,7 @@ public class RandomController extends AbstractDelegateController {
         response.setContentType("text/plain");
 
         OutputStream outputStream =  response.getOutputStream();
-        outputStream.write(random.getBody().toString().getBytes());
+        outputStream.write(randomNum.getBytes());
         return null;
     }
 
@@ -62,5 +69,14 @@ public class RandomController extends AbstractDelegateController {
 
         // 返回固定的长度的随机数
         return fixLenthString.substring(2, strLength + 2);
+    }
+
+    // 请求随机数（新接口）
+    @RequestMapping(method = RequestMethod.POST, value = "/getrandomnum")
+    public HttpEntity getRandomNum(@RequestBody GetRandomEntity getRandomEntity) {
+        if (loginController != null) {
+            return loginController.getRandomNum(getRandomEntity);
+        }
+        return new HttpEntity("");
     }
 }
