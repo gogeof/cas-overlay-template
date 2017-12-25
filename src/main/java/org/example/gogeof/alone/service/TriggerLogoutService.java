@@ -39,7 +39,7 @@ public class TriggerLogoutService {
         });
 
         if (tickets != null && tickets.size() > 0) {
-            LOGGER.info(String.format("[%s]强制强制注销%s", id, tickets.size()));
+            LOGGER.info(String.format("[%s]强制注销%s", id, tickets.size()));
         }
 
         //发出注销
