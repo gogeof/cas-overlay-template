@@ -36,8 +36,6 @@ public class CustomWebflowConfigurer extends AbstractCasWebflowConfigurer {
 
         // TODO 待与前端一块修改
         //　由于用户名以及密码已经绑定，所以只需对新加系统参数绑定即可
-        cfg.addBinding(new BinderConfiguration.Binding(cfg.getBinding("username").getProperty(), cfg.getBinding("username").getConverter(), false));
-        cfg.addBinding(new BinderConfiguration.Binding(cfg.getBinding("password").getProperty(), cfg.getBinding("password").getConverter(), false));
         cfg.addBinding(new BinderConfiguration.Binding("signCert", null, false));
         cfg.addBinding(new BinderConfiguration.Binding("cryptionCert", null, false));
         cfg.addBinding(new BinderConfiguration.Binding("sourceData", null, false));
