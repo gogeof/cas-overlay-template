@@ -32,10 +32,10 @@ public class CertKeyAuthenticationHandler extends AbstractPreAndPostProcessingAu
 
         // either cert or cert's info is empty?
         if (certKeyCredential == null ||
-                certKeyCredential.getSn().equals("") ||
-                certKeyCredential.getSignCert().equals("") ||
-                certKeyCredential.getSourceData().equals("") ||
-                certKeyCredential.getSignedData().equals("")) {
+                certKeyCredential.getSn() == null || certKeyCredential.getSn().equals("") ||
+                certKeyCredential.getSignCert() == null || certKeyCredential.getSignCert().equals("") ||
+                certKeyCredential.getSourceData() == null || certKeyCredential.getSourceData().equals("") ||
+                certKeyCredential.getSignedData() == null || certKeyCredential.getSignedData().equals("")) {
             throw new AccountNotFoundException("param check failed");
         }
 
@@ -56,8 +56,7 @@ public class CertKeyAuthenticationHandler extends AbstractPreAndPostProcessingAu
                 return createHandlerResult(credential, this.principalFactory.createPrincipal(((CertKeyCredential) credential).getId(), Collections.<String, Object>emptyMap()), null);
             }
         }catch (Exception e){
-            System.out.println(e);
-            throw new AccountException("service internal failed.");
+            throw new AccountNotFoundException("service internal failed.");
         }
 
         throw new AccountNotFoundException("not authenticated");

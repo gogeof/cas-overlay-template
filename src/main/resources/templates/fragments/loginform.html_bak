@@ -66,12 +66,12 @@
             <label for="signCert" >signcert</label>
             <div>
                 <input class="required"
-                        id="signcert"
-                        type="text"
-                        tabindex="1"
-                        th:accesskey="#{screen.welcome.label.password.accesskey}"
-                        th:field="*{signCert}"
-                        autocomplete="off">
+                       id="signcert"
+                       type="text"
+                       tabindex="1"
+                       th:accesskey="#{screen.welcome.label.password.accesskey}"
+                       th:field="*{signCert}"
+                       autocomplete="off">
                 </input>
             </div>
         </section>
@@ -80,12 +80,12 @@
             <label for="cryptioncert" >cryptioncert</label>
             <div>
                 <input class="required"
-                        id="cryptioncert"
-                        type="text"
-                        tabindex="1"
-                        th:accesskey="#{screen.welcome.label.password.accesskey}"
-                        th:field="*{cryptionCert}"
-                        autocomplete="off">
+                       id="cryptioncert"
+                       type="text"
+                       tabindex="1"
+                       th:accesskey="#{screen.welcome.label.password.accesskey}"
+                       th:field="*{cryptionCert}"
+                       autocomplete="off">
                 </input>
             </div>
         </section>
@@ -94,12 +94,12 @@
             <label for="sourcedata" >sourcedata</label>
             <div>
                 <input class="required"
-                        id="sourcedata"
-                        type="text"
-                        tabindex="1"
-                        th:accesskey="#{screen.welcome.label.password.accesskey}"
-                        th:field="*{sourceData}"
-                        autocomplete="off">
+                       id="sourcedata"
+                       type="text"
+                       tabindex="1"
+                       th:accesskey="#{screen.welcome.label.password.accesskey}"
+                       th:field="*{sourceData}"
+                       autocomplete="off">
                 </input>
             </div>
         </section>
@@ -108,12 +108,12 @@
             <label for="signeddata" >sourcedata</label>
             <div>
                 <input class="required"
-                        id="signeddata"
-                        type="text"
-                        tabindex="1"
-                        th:accesskey="#{screen.welcome.label.password.accesskey}"
-                        th:field="*{signedData}"
-                        autocomplete="off">
+                       id="signeddata"
+                       type="text"
+                       tabindex="1"
+                       th:accesskey="#{screen.welcome.label.password.accesskey}"
+                       th:field="*{signedData}"
+                       autocomplete="off">
                 </input>
             </div>
         </section>
