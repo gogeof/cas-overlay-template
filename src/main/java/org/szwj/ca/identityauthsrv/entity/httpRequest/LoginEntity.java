@@ -1,9 +1,11 @@
 package org.szwj.ca.identityauthsrv.entity.httpRequest;
 
+import org.apereo.cas.authentication.RememberMeUsernamePasswordCredential;
+
 /**
  * 请求登录动态口令消息类
  */
-public class LoginEntity extends BaseRequestEntity {
+public class LoginEntity extends RememberMeUsernamePasswordCredential {
 
     private String sn;
 
@@ -18,6 +20,36 @@ public class LoginEntity extends BaseRequestEntity {
     private String sourceData;
 
     private String signedData;
+
+    private String businessSystemCode;
+
+    private String businessTypeCode;
+
+    private String authority;
+
+    public String getBusinessSystemCode() {
+        return businessSystemCode;
+    }
+
+    public void setBusinessSystemCode(String businessSystemCode) {
+        this.businessSystemCode = businessSystemCode;
+    }
+
+    public String getBusinessTypeCode() {
+        return businessTypeCode;
+    }
+
+    public void setBusinessTypeCode(String businessTypeCode) {
+        this.businessTypeCode = businessTypeCode;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
 
     public String getSn() {
         return sn;

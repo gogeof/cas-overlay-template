@@ -5,25 +5,16 @@ import org.szwj.ca.identityauthsrv.entity.httpRequest.LoginEntity;
 
 public class CertKeyCredential extends LoginEntity implements ICertKeyCredential {
     private static final long serialVersionUID = -6710007659431302398L;
-    private String username;
-    private String password;
-
-    public String getUsername(){
-        return this.getSn();
-    }
-    public CertKeyCredential setUsername(String username){
-        this.username = username;
-        this.setSn(username);
-        return this;
+    @Override
+    public void setUsername(String userName) {
+        super.setUsername(userName);
+        this.setSn(userName);
     }
 
-    public String getPassword(){
-        return this.getPasswd();
-    }
-    public CertKeyCredential setPassword(String password){
-        this.password = password;
+    @Override
+    public void setPassword(String password) {
+        super.setPassword(password);
         this.setPasswd(password);
-        return this;
     }
 
     @Override
