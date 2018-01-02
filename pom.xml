@@ -269,6 +269,14 @@
             <version>1.0</version>
         </dependency>
         <!-- 证书依赖 end -->
+
+        <!-- 从mongo db中获取允许访问的url begin-->
+        <dependency>
+            <groupId>org.apereo.cas</groupId>
+            <artifactId>cas-server-support-mongo-service-registry</artifactId>
+            <version>${cas.version}</version>
+        </dependency>
+        <!-- 从mongo db中获取允许访问的url end-->
     </dependencies>
 
 
