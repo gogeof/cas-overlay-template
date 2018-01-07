@@ -87,13 +87,6 @@
             <artifactId>cas-server-support-jdbc-drivers</artifactId>
             <version>${cas.version}</version>
         </dependency>
-        <!--
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.36</version>
-        </dependency>
-        -->
         <!--数据库认证相关 end-->
         <dependency>
             <groupId>org.apereo.cas</groupId>
@@ -270,13 +263,12 @@
         </dependency>
         <!-- 证书依赖 end -->
 
-        <!-- 从mongo db中获取允许访问的url begin-->
+        <!-- support jpa-->
         <dependency>
             <groupId>org.apereo.cas</groupId>
-            <artifactId>cas-server-support-mongo-service-registry</artifactId>
+            <artifactId>cas-server-support-jpa-service-registry</artifactId>
             <version>${cas.version}</version>
         </dependency>
-        <!-- 从mongo db中获取允许访问的url end-->
     </dependencies>
 
 
